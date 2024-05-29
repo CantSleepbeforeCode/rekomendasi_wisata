@@ -104,7 +104,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Deskripsi</label>
-                            <input type="text" name="wisata_description" class="form-control" required>
+                            <textarea name="wisata_description" id="" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Latitude</label>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Deskripsi</label>
-                                <input type="text" name="wisata_description" value="{{$wisata->wisata_description}}" class="form-control" required>
+                                <textarea name="wisata_description" id="" cols="30" rows="10" class="form-control">{{$wisata->wisata_description}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Latitude</label>

@@ -35,6 +35,10 @@ class ApiController extends Controller
 
     public function register(Request $request)
     {
+        $user = User::where('email', $request->person_phone)->first();
+        if($user != null) {
+            return new LoginResource(false, 'registered');
+        }
         $user = new User();
         $user->username = $request->person_phone;
         $user->password = Hash::make($request->password);

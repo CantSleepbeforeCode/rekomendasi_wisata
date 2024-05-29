@@ -106,6 +106,12 @@ class MainController extends Controller
     }
     public function adduser(Request $request)
     {
+        
+        $userCheck = User::where('username', $request->person_phone)->first();
+        if($userCheck != null) {
+            return redirect()->back()->with('error', 'Nomor telpon telah terdaftar');
+        }
+        
         $user = new User();
         $user->username = $request->person_phone;
         $user->password = Hash::make($request->password);
@@ -188,7 +194,8 @@ class MainController extends Controller
         $data->person_age = $request->person_age;
         $data->person_address = $request->person_address;
 
-        $data->save();
+        
+
 
         $user = User::find($data->user_id);
         $user->username = $request->person_phone;
@@ -198,7 +205,14 @@ class MainController extends Controller
         }
 
         $user->level = 'user';
+
+        $userCheck = User::where('username', $request->person_phone)->where('user_id', '!=', $user->user_id)->first();
+        if($userCheck != null) {
+            return redirect()->back()->with('error', 'Nomor telpon telah terdaftar');
+        }
+
         $user->save();
+        $data->save();
         return redirect()->back()->with('success', 'Berhasil mengubah data');
     }
     public function deletewisata($id)

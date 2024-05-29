@@ -104,7 +104,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Deskripsi</label>
-                            <input type="text" name="kuliner_description" class="form-control" required>
+                            <textarea name="kuliner_description" id="" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Latitude</label>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Deskripsi</label>
-                                <input type="text" name="kuliner_description" value="{{$kuliner->kuliner_description}}" class="form-control" required>
+                                <textarea name="kuliner_description" id="" cols="30" rows="10" class="form-control">{{$kuliner->kuliner_description}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Latitude</label>

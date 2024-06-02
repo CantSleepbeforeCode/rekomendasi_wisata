@@ -37,7 +37,7 @@ class ApiController extends Controller
     {
         $user = User::where('username', $request->person_phone)->first();
         if($user) {
-            return new LoginResource(false, 'registered');
+            return new LoginResource(false, 'registered', null);
         }
         $user = new User();
         $user->username = $request->person_phone;
@@ -54,15 +54,16 @@ class ApiController extends Controller
         $data->person_address = $request->person_address;
 
         $data->save();
-        return new LoginResource(true, 'success');
+        return new LoginResource(true, 'success', $data);
     }
 
     public function login(Request $request)
     {
+        $user = Person::where('person_phone', $request->username)->first();
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            return new LoginResource(true, 'success');
+            return new LoginResource(true, 'success', $user);
         } else {
-            return new LoginResource(false, 'failed');
+            return new LoginResource(false, 'failed', null);
         }
     }
 }

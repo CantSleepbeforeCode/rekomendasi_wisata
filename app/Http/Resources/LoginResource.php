@@ -9,6 +9,7 @@ class LoginResource extends JsonResource
 {
     public $status;
     public $message;
+    public $data;
 
     
     /**
@@ -19,10 +20,11 @@ class LoginResource extends JsonResource
      * @param  mixed $resource
      * @return void
      */
-    public function __construct($status, $message)
+    public function __construct($status, $message, $data)
     {
         $this->status  = $status;
         $this->message = $message;
+        $this->data = $data;
     }
 
     /**
@@ -34,7 +36,8 @@ class LoginResource extends JsonResource
     {
         return [
             'success'   => $this->status,
-            'message'   => $this->message
+            'message'   => $this->message,
+            'data'      => $this->data
         ];
     }
 }

@@ -10,10 +10,15 @@ use App\Models\User;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
+
+    public function getLocation() {
+        return new DataResource(true, 'success', DB::select("SELECT * FROM locations limit 1"));
+    }
     public function listWisata()
     {
         return new DataResource(true, 'success', Wisata::all());

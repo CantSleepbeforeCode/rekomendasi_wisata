@@ -8,6 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::get('/get-location', [ApiController::class, 'getLocation']);
 Route::get('/list-wisata', [ApiController::class, 'listWisata']);
 Route::get('/list-kuliner', [ApiController::class, 'listKuliner']);
 Route::get('/detail-wisata', [ApiController::class, 'detailWisata']);

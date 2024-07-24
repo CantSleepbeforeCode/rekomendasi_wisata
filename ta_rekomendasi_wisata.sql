@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 27/05/2024 19:47:19
+ Date: 24/07/2024 11:54:46
 */
 
 SET NAMES utf8mb4;
@@ -37,6 +37,20 @@ CREATE TABLE `kuliners`  (
 -- Records of kuliners
 -- ----------------------------
 INSERT INTO `kuliners` VALUES (1, 'Gado Gadoo', 'gado gado', '/image/1716807797__1.jpg', '222', '11', 40, 40);
+
+-- ----------------------------
+-- Table structure for locations
+-- ----------------------------
+DROP TABLE IF EXISTS `locations`;
+CREATE TABLE `locations`  (
+  `latitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `longitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of locations
+-- ----------------------------
+INSERT INTO `locations` VALUES ('-1.259749464974345', '116.86961219958923');
 
 -- ----------------------------
 -- Table structure for persons
@@ -67,12 +81,13 @@ CREATE TABLE `users`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `level` enum('admin','user') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'anureta', '$2y$12$5kvV5J0.LChvg0zmlZl/sOyq7lU23yMbofAD7tqEVHoDyWNqDT4ga', 'admin');
+INSERT INTO `users` VALUES (11, '081277057373', '$2y$12$5kvV5J0.LChvg0zmlZl/sOyq7lU23yMbofAD7tqEVHoDyWNqDT4ga', 'user');
 
 -- ----------------------------
 -- Table structure for wisatas
